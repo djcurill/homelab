@@ -1,0 +1,45 @@
+# Environment files with secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# Docker volumes and data directories
+volumes/
+data/
+**/data/
+**/volumes/
+
+# Logs
+logs/
+*.log
+
+# Secrets and certificates
+secrets/
+certs/
+*.key
+*.pem
+*.crt
+*.cert
+
+# Backup files
+*.backup
+*.bak
+backups/
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# Temporary files
+tmp/
+temp/
+*.tmp
