@@ -42,6 +42,8 @@ services:
       # Optional, if Pi-hole should get some more processing time
       - SYS_NICE
     restart: unless-stopped
+    labels:
+      - "traefik.http.routers.pihole.rule=Host(`pihole.localhost`)"
 
 networks:
   pihole:
