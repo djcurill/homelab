@@ -6,8 +6,6 @@
 
 # Docker volumes and data directories
 volumes/
-data/
-**/data/
 **/volumes/
 
 # Logs
