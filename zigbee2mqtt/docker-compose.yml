@@ -13,7 +13,7 @@ services:
       - TZ=America/Edmonton
     devices:
         # Make sure this matched your adapter location
-        - usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_54a425f444beed11955b642e38a92db5-if00-port0:/dev/ttyUSB0
+        - /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_54a425f444beed11955b642e38a92db5-if00-port0:/dev/ttyUSB0
     group_add:
       - dialout
     user: 1000:1000
