@@ -1,0 +1,31 @@
+services:
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: ghcr.io/koenkk/zigbee2mqtt
+    restart: unless-stopped
+    volumes:
+        - ./data:/app/data
+        - /run/udev:/run/udev:ro
+    ports:
+        # Frontend port
+        - 8082:8080
+    environment:
+      - TZ=America/Edmonton
+    devices:
+        # Make sure this matched your adapter location
+        - usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_54a425f444beed11955b642e38a92db5-if00-port0:/dev/ttyUSB0
+    group_add:
+      - dialout
+    user: 1000:1000
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      - "traefik.http.routers.zigbee2mqtt.rule=Host(`zigbee2mqtt.lan`)"
+      - "traefik.http.routers.zigbee2mqtt.entrypoints=web"
+      - "traefik.http.services.zigbee2mqtt.loadbalancer.server.port=8080"
+
+networks:
+  traefik:
+    external: true
