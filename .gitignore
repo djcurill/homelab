@@ -21,6 +21,7 @@ certs/
 *.pem
 *.crt
 *.cert
+password.txt
 
 # Backup files
 *.backup

@@ -11,14 +11,18 @@ services:
         - 8082:8080
     environment:
       - TZ=America/Edmonton
+      - ZIGBEE2MQTT_CONFIG_MQTT_BASE_TOPIC=zigbee2mqtt
+      - ZIGBEE2MQTT_CONFIG_MQTT_USER=${ZIGBEE2MQTT_USER}
+      - ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD=${ZIGBEE2MQTT_PASSWORD}
     devices:
         # Make sure this matched your adapter location
         - /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_54a425f444beed11955b642e38a92db5-if00-port0:/dev/ttyUSB0
     group_add:
       - dialout
-    user: 1001:1004
+    user: 1000:1000
     networks:
       - traefik
+      - mosquitto
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"
@@ -28,4 +32,6 @@ services:
 
 networks:
   traefik:
+    external: true
+  mosquitto:
     external: true
