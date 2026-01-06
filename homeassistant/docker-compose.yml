@@ -1,0 +1,19 @@
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - ./config:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+    ports:
+      - "8123:8123"
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      TZ: America/Edmonton
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.hass.rule=Host(`hass.lan`)"
+      - "traefik.http.services.hass.loadbalancer.server.port=8123"
+      - "traefik.http.services.hass.loadbalancer.server.url=http://192.168.0.2:8123"

@@ -1,0 +1,8 @@
+homeassistant:
+  name: Casa del Can
+
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.18.0.0/16 # traefik network
+    - 192.168.0.0/16 # host network
