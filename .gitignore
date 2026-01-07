@@ -9,7 +9,6 @@ volumes/
 **/volumes/
 mosquitto/data/
 zigbee2mqtt/data/
-!zigbee2mqtt/data/configuration.yaml
 
 # Logs
 logs/
