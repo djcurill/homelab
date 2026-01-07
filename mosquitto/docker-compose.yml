@@ -1,6 +1,7 @@
 services:
   mosquitto:
     container_name: mosquitto
+    user: "1001:1001"
     image: eclipse-mosquitto
     restart: always
     networks:
