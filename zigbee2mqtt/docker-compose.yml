@@ -3,6 +3,7 @@ services:
     container_name: zigbee2mqtt
     image: ghcr.io/koenkk/zigbee2mqtt
     restart: unless-stopped
+    user: "1001:1001"
     volumes:
         - ./data:/app/data
         - /run/udev:/run/udev:ro

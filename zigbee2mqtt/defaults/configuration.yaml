@@ -2,7 +2,8 @@ version: 4
 mqtt:
   base_topic: zigbee2mqtt
   server: mqtt://mosquitto:1883
-serial: {}
+serial:
+  port: /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_54a425f444beed11955b642e38a92db5-if00-port0
 advanced:
   log_level: info
   channel: 11
