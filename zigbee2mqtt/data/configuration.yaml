@@ -3,13 +3,38 @@ mqtt:
   base_topic: zigbee2mqtt
   server: mqtt://mosquitto:1883
 serial:
-  port: /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_54a425f444beed11955b642e38a92db5-if00-port0
+  port: /dev/ttyUSB0
+  adapter: zstack
 advanced:
   log_level: info
   channel: 11
-  network_key: GENERATE
-  pan_id: GENERATE
-  ext_pan_id: GENERATE
+  network_key:
+    - 221
+    - 182
+    - 216
+    - 192
+    - 17
+    - 64
+    - 155
+    - 242
+    - 142
+    - 188
+    - 213
+    - 166
+    - 8
+    - 70
+    - 164
+    - 250
+  pan_id: 17193
+  ext_pan_id:
+    - 79
+    - 81
+    - 104
+    - 63
+    - 252
+    - 250
+    - 10
+    - 156
 frontend:
   enabled: true
   port: 8080

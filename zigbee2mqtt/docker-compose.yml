@@ -18,6 +18,8 @@ services:
     networks:
       - traefik
       - mosquitto
+    group_add:
+      - dialout
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"
