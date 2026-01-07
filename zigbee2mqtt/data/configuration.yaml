@@ -1,7 +1,7 @@
 version: 4
 mqtt:
   base_topic: zigbee2mqtt
-  server: mqtt://localhost:1883
+  server: mqtt://mosquitto:1883
 serial: {}
 advanced:
   log_level: info
@@ -10,8 +10,8 @@ advanced:
   pan_id: GENERATE
   ext_pan_id: GENERATE
 frontend:
-  enabled: false
+  enabled: true
   port: 8080
 homeassistant:
-  enabled: false
-onboarding: true
+  enabled: true
+onboarding: false
