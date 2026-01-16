@@ -15,5 +15,5 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.hass.rule=Host(`hass.lan`)"
-      - "traefik.http.services.hass.loadbalancer.server.port=8123"
-      - "traefik.http.services.hass.loadbalancer.server.url=http://192.168.0.2:8123"
+      # - "traefik.http.services.hass.loadbalancer.server.port=8123"
+      - "traefik.http.services.hass.loadbalancer.server.url=http://host.docker.internal:8123"
