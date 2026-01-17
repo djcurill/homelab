@@ -9,6 +9,8 @@ volumes/
 **/volumes/
 mosquitto/data/
 zigbee2mqtt/data/
+homeassistant/config/
+!homeassitant/config/configuration.yaml
 
 # Logs
 logs/
