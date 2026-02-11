@@ -1,0 +1,12 @@
+http:
+  routers:
+    hass:
+      rule: "Host(`hass.lan`)"
+      entryPoints:
+        - web
+      service: hass
+  services:
+    hass:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.0.2:8123"

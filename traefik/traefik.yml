@@ -5,3 +5,5 @@ entryPoints:
     address: ":80"
 providers:
   docker: {}
+  file:
+    directory: /etc/traefik/dynamic

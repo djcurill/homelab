@@ -6,6 +6,7 @@ services:
       - "8081:8080"
     volumes:
       - ./traefik.yml:/etc/traefik/traefik.yml
+      - ./dynamic:/etc/traefik/dynamic
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - traefik
