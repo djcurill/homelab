@@ -52,3 +52,7 @@ temp/
 etc-pihole/
 
 *.db
+
+# terraform
+*.tfvars
+.terraform
