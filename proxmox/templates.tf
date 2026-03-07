@@ -47,4 +47,11 @@ resource "proxmox_virtual_environment_vm" "ubuntu_template" {
 
   # Boot from OS disk, not network or cloud-init CD-ROM
   boot_order = ["scsi0"]
+
+  # Provider bug: template VMs always show changes for computed network attributes.
+  # https://github.com/bpg/terraform-provider-proxmox/issues/1494
+  # https://github.com/bpg/terraform-provider-proxmox/discussions/1992
+  lifecycle {
+    ignore_changes = [ipv4_addresses, ipv6_addresses, network_interface_names]
+  }
 }
