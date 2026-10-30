@@ -1,0 +1,14 @@
+- name: Base setup for all vms
+  hosts: cluster
+  become: true # sudo
+
+  tasks:
+    - name: Install base packages
+      ansible.builtin.apt:
+        name:
+          - curl
+          - vim
+          - htop
+        state: present
+        update_cache: true
+        cache_valid_time: 3600
