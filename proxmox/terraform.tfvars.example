@@ -1,2 +1,4 @@
 # terraform.tfvars
 proxmox_host = "10.0.0.8"
+proxmox_user = "example"
+proxmox_private_key_path = "/path/to/ssh/key"

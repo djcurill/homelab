@@ -73,5 +73,5 @@ variable "init_datastore_id" {
 
 variable "username" {
   type    = string
-  default = "ubuntu"
+  default = "me"
 }

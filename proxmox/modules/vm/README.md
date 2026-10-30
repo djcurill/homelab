@@ -1,4 +1,4 @@
-# proxmox-vm module
+# vm module
 
 Creates a Proxmox VM cloned from a template with cloud-init configuration.
 

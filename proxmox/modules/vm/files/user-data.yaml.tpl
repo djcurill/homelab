@@ -4,16 +4,18 @@
 # Cloud-init only runs on FIRST BOOT — changes require destroying and recreating the VM.
 
 hostname: ${hostname}
+timezone: America/Edmonton
+ssh_pwauth: false
 package_update: true
 packages:
   - qemu-guest-agent # enables Proxmox-to-VM communication (IP reporting, graceful shutdown)
 
 users:
   - name: ${username}
-    sudo: (ALL) NOPASSWD:ALL    # full sudo without password prompts
+    sudo: ALL=(ALL) NOPASSWD:ALL    # full sudo without password prompts
     shell: /bin/bash
     ssh_authorized_keys:
-      - ${ssh_public_key}       # injected from ~/.ssh/id_rsa.pub via Terraform
+      - ${ssh_public_key}
 
 runcmd:
   - systemctl enable --now qemu-guest-agent # enable = start on boot, --now = also start immediately
